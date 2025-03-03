@@ -40,13 +40,13 @@ fun MiniScoreCard(miniMatchCard: MiniMatchCard) {
                 .padding(12.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            // Top Row: Team Flags and Score
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Team A Flag
+
                 TeamFlag(
                     code = result?.teams?.a?.shortName ?: "",
                     teamImageUrl = result?.teams?.a?.logo,
@@ -54,7 +54,7 @@ fun MiniScoreCard(miniMatchCard: MiniMatchCard) {
                     modifier = Modifier.size(54.dp)
                 )
 
-                // commentry
+
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -68,7 +68,7 @@ fun MiniScoreCard(miniMatchCard: MiniMatchCard) {
                     }
                 }
 
-                // Team B Flag
+
                 TeamFlag(
                     code = result?.teams?.b?.shortName ?: "",
                     teamImageUrl = result?.teams?.b?.logo,
@@ -82,7 +82,7 @@ fun MiniScoreCard(miniMatchCard: MiniMatchCard) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Team A Score and Overs (1st Innings)
+
                 result?.teams?.a?.a_1_score?.let { score ->
                     Column(
                         horizontalAlignment = Alignment.Start

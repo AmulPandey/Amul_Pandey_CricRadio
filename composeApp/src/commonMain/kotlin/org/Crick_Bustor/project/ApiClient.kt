@@ -17,16 +17,16 @@ import org.assignment_life_easy.project.Result
 class ApiClient(
     private val httpClient: HttpClient
 ) {
-    private val baseUrl = "http://3.6.243.12:5001" // TODO: Change this URL
+    private val baseUrl = "http://3.6.243.12:5001"
     private val AUTHORIZATION_HEADER = "Basic Y3JpY2tldFJhZGlvOmNyaWNrZXRAJCUjUmFkaW8xMjM="
     private val API_KEY = "SA_vs_SL_2024-12-05_1732276435.300452"
 
 
     private suspend inline fun <reified T> makeApiCall(
         url: String,
-        method: HttpMethod = HttpMethod.Get,  // Default to GET method
+        method: HttpMethod = HttpMethod.Get,
         params: Map<String, String>? = null,
-        body: Any? = null, // To be used for POST requests
+        body: Any? = null,
         headers: Map<String, String>? = null
     ): Result<T, NetworkError> {
         val response = try {

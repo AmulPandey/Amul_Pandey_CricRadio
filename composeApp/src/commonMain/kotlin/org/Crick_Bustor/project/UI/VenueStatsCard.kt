@@ -51,7 +51,7 @@ fun VenueStatsCard(statsCard: VenueStatsCard) {
             VenueStatItem("Win Ball First", "25")
             VenueStatItem("Highest Chased", "25")
 
-            // Second section - two column layout
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -165,7 +165,6 @@ private fun VenueStatItemTwoColumn(
             )
         }
 
-        // Second innings value
         Box(
             modifier = Modifier.weight(1f),
             contentAlignment = Alignment.CenterEnd

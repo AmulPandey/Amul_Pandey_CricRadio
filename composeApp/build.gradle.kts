@@ -52,12 +52,11 @@ kotlin {
             implementation(compose.material3)
             implementation(libs.bundles.ktor)
             implementation(libs.ktor.client.okhttp)
-            implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
-            implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
-            implementation("dev.icerock.moko:resources:0.22.1")
-            implementation("io.insert-koin:koin-core:3.5.0")
-            implementation("io.insert-koin:koin-compose:1.1.0")
-
+            implementation(libs.coil3.coil.compose)
+            implementation(libs.coil.network.ktor)
+            implementation(libs.resources)
+            implementation(libs.koin.core.v350)
+            implementation(libs.koin.compose.v110)
 
         }
     }

@@ -10,14 +10,13 @@ import kotlinx.serialization.json.Json
 
 fun createHttpClient(engine: HttpClientEngine): HttpClient {
     return HttpClient(engine) {
-        // Install Features like content negotiation, logging etc
         install(Logging) {
             level = LogLevel.ALL
         }
         install(ContentNegotiation) {
             json(
                 json = Json {
-                    ignoreUnknownKeys = true // Ignore extra or unexpected fields in the response
+                    ignoreUnknownKeys = true
                     isLenient = true
                 }
             )

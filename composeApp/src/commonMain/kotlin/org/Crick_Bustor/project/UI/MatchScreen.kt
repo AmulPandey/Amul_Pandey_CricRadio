@@ -21,9 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.Crick_Bustor.project.OtherDataClasses.VenueStatsCard
-
 import org.Crick_Bustor.project.ViewModel.MatchState
-
 import org.Crick_Bustor.project.ViewModel.MatchViewModel
 import org.Crick_Bustor.project.ViewModel.VenueState
 import org.koin.compose.koinInject
@@ -53,12 +51,11 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
             is MatchState.Success -> {
                 matchState.data?.let { matchData ->
                     Column(modifier = Modifier.verticalScroll(scrollState)) {
-                        // Mini Scorecard
                         MiniScoreCard(miniMatchCard = matchData)
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Stadium Image Card
+
                         when (venueState) {
                             is VenueState.Success -> {
                                 VenuePhoto(venueState.data)
@@ -84,7 +81,7 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
 
 
 
-                        // Venue Info Row
+
                         when (venueState) {
                             is VenueState.Success -> {
                                 VenueInfoRow(venueState.data)
@@ -107,10 +104,10 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        //umpire card
+
                         when (venueState) {
                             is VenueState.Success -> {
-                                Umpire(venueState.data) // Pass the `VenueStatsCard` to the Umpire composable
+                                Umpire(venueState.data)
                             }
                             is VenueState.Loading -> {
                                 CircularProgressIndicator(
@@ -128,7 +125,7 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
                             }
                         }
 
-                        //waether card
+
                         when (venueState) {
                             is VenueState.Success -> {
                                 Weather(venueState.data)
@@ -150,7 +147,7 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
                         }
 
 
-                        // Venue Stats Card
+
                         when (venueState) {
                             is VenueState.Loading -> {
                                 CircularProgressIndicator(
@@ -186,7 +183,7 @@ fun MatchScreen(  viewModel: MatchViewModel = koinInject()) {
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(
-                        onClick = { /* Retry logic */ },
+                        onClick = { },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF001E3C)
                         )
@@ -213,7 +210,7 @@ fun VenuePhoto(venueInfo: VenueStatsCard) {
                 .fillMaxSize()
                 .background(Color(0xFF1E1E1E))
         ) {
-            // Asynchronous Image Loading with Coil
+
             AsyncImage(
                 model = venueInfo.responseData.result.venueDetails.photo,
                 contentDescription = "Stadium Image",
@@ -285,7 +282,7 @@ fun VenueInfoRow(venueInfo: VenueStatsCard) {
             .padding(8.dp)
     ) {
         venueInfo.responseData.result.start_date?.let { startDate ->
-            // Format and display the date
+
             val readableDate = "${startDate.str}"
 
             Text(
@@ -441,7 +438,7 @@ fun Umpire(umpireInfo: VenueStatsCard) {
 
 
 
-// Weather Card
+
 @Composable
 fun Weather(weatherInfo: VenueStatsCard){
     Card(
@@ -465,7 +462,7 @@ fun Weather(weatherInfo: VenueStatsCard){
                         .fillMaxSize()
                         .background(Color(0xFF1E1E1E))
                 ) {
-                    // Asynchronous Image Loading with Coil
+
                     AsyncImage(
                         model = weatherInfo.responseData.result.weather.condition.icon,
                         contentDescription = "Stadium Image",
