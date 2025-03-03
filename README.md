@@ -31,7 +31,7 @@ Crick_Bustor/
 - **Language**: Kotlin (Multiplatform)
 - **UI Framework**: Compose Multiplatform
 - **Networking**: Ktor Client
-- **Dependency Injection**: Koin (optional)
+- **Dependency Injection**: Koin
 - **State Management**: ViewModel, Flow
 
 ## 🔧 Setup & Installation
